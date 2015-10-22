@@ -20,6 +20,7 @@ $('.button').on('click', function (){
 	}
 	$("#new-task").val("");
 	$("#task-time").val("");
+	
 
 });
 
