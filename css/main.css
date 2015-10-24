@@ -392,12 +392,19 @@ h3 {
 
 body {
   background-color: #D9DFDB;
+  background-image: url("../img/desktop.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
 .clearfix {
-  background-color: gray;
-  border-bottom: thick solid lightblue;
+  background-color: rgba(105, 105, 105, .75);
+  border-bottom: thick solid rgba(173, 216, 230, .75);
 }
 
 
@@ -461,7 +468,8 @@ ul li {
 footer p{
   clear: both;
   padding-top: 20px;
-  background-color:  gray;
+  background-color: rgba(105, 105, 105, .75);
+  border-top: thick solid rgba(173, 216, 230, .75);
   color: #FFF;
   padding: 20px;
   font-size: 20px;

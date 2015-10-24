@@ -1,5 +1,7 @@
 
-
+// jQuery(function($){
+//    $("#task-time").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+// }
 
 
 $('.button').on('click', function (){
@@ -20,7 +22,8 @@ $('.button').on('click', function (){
 	}
 	$("#new-task").val("");
 	$("#task-time").val("");
-	
+
+
 
 });
 
