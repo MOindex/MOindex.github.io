@@ -278,27 +278,16 @@ textarea {
 
 .add-task {
   width: 50%;
-  background-color: lightblue;
-  min-height: 130px;
+  background-color: rgba(173, 216, 230, .9);
+  min-height: 110px;
   border-radius: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   margin: 0 auto;
-  margin-top: 50px;
 }
 
 .add-task input, .add-task textarea {
   width: 240px;
   margin: 1px 5px;
-  float:left;
-}
-
-.add-task input {
-  height: 30px;
-}
-
-.add-task input[type="button"] {
-  width: 100px;
-  margin: 5px;
   float:left;
 }
 
@@ -309,50 +298,58 @@ textarea {
   width: 50%;
 }
 
+
 .task-list {
-  width: 100%;
-  border: 5px solid gray;
-  min-height: 75px;
+  background-color: rgba(175, 175, 175, .9);
+  padding: 5px;
   border-radius: 10px;
   margin: 0 auto;
-  margin-top: 5px;
   margin-right: 0;
+  width: 98.5%;
+  margin-top: 3px;
 }
 
 .task-list input {
   margin: 1px 5px;
   float:left;
   height: 30px;
-  background-color: lightgray;
   display: inline-block;
   text-align: center;
   margin: 5px;
 }
 
-ul,li { list-style-type: none;
-        list-style-position:inside;
-        margin:0;
-        padding:0; }
 
-.task-list .task-name{
-  width: 60%
+.task-list .task-name, #new-task{
+  width: 45%;
+  padding: 5px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  height: 30px;
+  transition: border 0.3s;
 }
 
-.task-list .task-time {
-  width: 20%;
+.task-list .task-time, #task-time {
+  width: 25%;
+  padding: 5px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  height: 30px;
+  transition: border 0.3s;
 }
 
 
 .close {
-  float: right;
+  float: left;
   margin: 5px;
-  width: 5%;
+  width: 6%;
 }
 
 .checkmark {
   float: left;
   margin: 5px;
-  width: 5%;
+  margin-right: 15px;
+  margin-left: 15px;
+  width: 6%;
 }
 
 
@@ -360,26 +357,41 @@ ul,li { list-style-type: none;
 /*///////////completed-task/////////*/
 
 .completed-task {
-  background-color: red;
+  background-color: rgba(100, 100, 100, .9);
 }
 
-.error-time {
-  background-color: blue;
+.completed-task input {
+  text-decoration: line-through;
+  background-color: rgba(175, 175, 175, .9)
 }
 
 .error-no-input {
   background-color: red;
-
+  
 }
+
+
+ul,li { list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0; }
 
 ul li {
     display: inline-block;
     float: left;
+    padding: 0;
+    margin: 10px;
 }
 
 ul input {
     display: inline-block;
     float: left;
+
+}
+
+nav li:hover {
+  margin-bottom: -3px;
+  border-bottom: 3px solid rgba(173, 216, 230, .75);
 }
 
 
@@ -424,8 +436,8 @@ body {
 /* Headings
    ================================================================ */
 section {
-    margin: 0 auto -100px;
-    min-height: 100%;
+    margin: 0 auto -1px;
+    min-height: 95%;
     height: auto !important;
     height: 100%;
 }
@@ -446,20 +458,16 @@ h1 {
   font-weight: 400; 
   font-size: 30px;
   padding-left: 25px;
-  margin-bottom: 0px;
+  margin: 5px;
 }
 
 h3 {
-    color: gray;
+    color: black;
     font-family: Arial, serif;
     font-size: 20px;
     padding-top: 10px;
 }
 
-
-ul li {
-  font-family: sans-serif;
-}
 
 
 
@@ -472,11 +480,13 @@ footer p{
   border-top: thick solid rgba(173, 216, 230, .75);
   color: #FFF;
   padding: 20px;
-  font-size: 20px;
+  font-size: 14px;
+
 }
 
 footer .push {
   height: 100px;
+  margin-top: 50px;
 }
 
 
@@ -495,41 +505,40 @@ a {
   text-decoration: none
 }
 
-nav li {
-  display: inline-block;
-  padding: 20px; 
-}
 
-nav ul {
-  margin: 0;
-}
+
+
 
 
 /* Buttons
    ================================================================ */
 
-.button{
+.add-task .button{
   display: block;
   margin: 0 auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
+/*  padding: 0 20px;*/
+  vertical-align: middle;
   text-align: center;
   background-color: #D9DFDB;
   text-decoration: none;
   color: #070707;
   font-family: arial, serif;
-  font-size: 14px;
+  font-size: 16px;
   border-bottom: 3px solid gray;
   border-radius: 5px;
+  width: 20%;
+  height: 40px;
 }
 
-
-.button.red {
-  background-color: #D7544C;
-  color: #FFF;
-  border-bottom: 3px solid darkred;
+.button:hover {
+  border: 3px solid gray;
 }
 
-.homepage {
-  background-color: #FFF;
+/*/////////////////////media queries/////////////////*/
+
+@media screen and (max-width: 900px) {
+    .add-task, .task-list {
+        width: 90%;
+    }
 }
+
