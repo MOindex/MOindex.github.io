@@ -43,7 +43,7 @@ function storeTask(newTask, newTaskTime) {
 	}
 
 function removeTask(itemToRemoveIndex) {
-  	storage.pop(itemToRemoveIndex);
+  	storage.pop(taskNumber);
 
   	localStorage["storage"] = JSON.stringify(storage);
 }
