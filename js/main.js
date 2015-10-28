@@ -1,12 +1,15 @@
 
+var taskNumber = 0;
+
 if (localStorage['storage']) {
-    var storage= JSON.parse(localStorage['storage']);
-}else {
+    var storage = JSON.parse(localStorage['storage']);
+} else {
     var storage = [];
 }
 
 for(var i=0;i<storage.length;i++) {
-    addOldTask(storage[i]);
+	taskNumber = i;
+    addOldTask(i);
 }
 
 $('.button').on('click', function (){
@@ -21,13 +24,14 @@ $('.button').on('click', function (){
 });
 
 function addTask(newTask, newTaskTime) {
-	$('.task-container').append('<li class=\"task-list\"><input class=\"task-name\" value="'+newTask+'""><input class=\"task-time\" value='+newTaskTime+'><img class=\"checkmark\" src=\"img/check33 (1).png\" alt=\"Checkmark-Button\"><img class=\"close\" src=\"img/cancel4.png\" alt=\"X-Button\"></li>');
+	taskNumber++;
+	$('.task-container').append('<li class=\"task-list\"><input class=\"task-name\" value="'+newTask+'""><input class=\"task-time\" value='+newTaskTime+'><img class=\"checkmark\" src=\"img/check33 (1).png\" alt=\"Checkmark-Button\"><img class=\"close\" src=\"img/cancel4.png\" alt=\"X-Button\" data-id="' + taskNumber + '"></li>');
 	$("#new-task").val("");
 	$("#task-time").val("");
 }
 
-function addOldTask(taskName, taskTime) {
-	$('.task-container').append('<li class=\"task-list\"><input class=\"task-name\" value="taskName:"><input class=\"task-time\" value='+taskTime+'><img class=\"checkmark\" src=\"img/check33 (1).png\" alt=\"Checkmark-Button\"><img class=\"close\" src=\"img/cancel4.png\" alt=\"X-Button\"></li>');
+function addOldTask(taskNumber) {
+	$('.task-container').append('<li class=\"task-list\"><input class=\"task-name\" value="'+storage[taskNumber].taskName+'"><input class=\"task-time\" value="'+storage[taskNumber].taskTime+'"><img class=\"checkmark\" src=\"img/check33 (1).png\" alt=\"Checkmark-Button\"><img class=\"close\" src=\"img/cancel4.png\" alt=\"X-Button\" data-id="' + taskNumber + '"></li>');
 }
 
 function storeTask(newTask, newTaskTime) {
@@ -38,13 +42,11 @@ function storeTask(newTask, newTaskTime) {
   	localStorage["storage"] = JSON.stringify(storage);
 	}
 
-function removeTask(newTask, newTaskTime) {
-  	storage.pop({
-    	taskName: newTask,
-    	taskTime: newTaskTime
-  	});
-  	localStorage.removeItem["storage"] = JSON.stringify(storage);
-	}
+function removeTask(itemToRemoveIndex) {
+  	storage.pop(itemToRemoveIndex);
+
+  	localStorage["storage"] = JSON.stringify(storage);
+}
 
 function validateForm(newTask, newTaskTime) {
 	var hasError = false;
@@ -61,10 +63,11 @@ function validateForm(newTask, newTaskTime) {
 }
 
 $('.task-container').on('click', '.close', function (){
-	console.log('hello')
+	console.log('hello');
+	var itemToRemoveIndex = $(this).data('id');
 	$(this).closest('.task-list').remove();
-	removeTask() 
-  	});
+	removeTask(itemToRemoveIndex); 
+ });
 	// also use .pop to remove from storage array
 
 $('.task-container').on('click', '.checkmark', function (){

@@ -537,8 +537,30 @@ a {
 /*/////////////////////media queries/////////////////*/
 
 @media screen and (max-width: 900px) {
-    .add-task, .task-list {
+    .add-task, .task-container {
         width: 90%;
     }
 }
+
+@media screen and (max-width: 550px) {
+    nav ul {
+        display: none;
+    }
+    .add-task .button{
+      width: 15%;
+      content:'Add';
+    }
+    
+    .checkmark {
+      margin-right: 0;
+      margin-left: 5px;
+    }
+
+    .checkmark, .close {
+      width: 7%;
+      padding-top: 7px;
+    }
+}
+
+
 
